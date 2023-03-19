@@ -43,4 +43,4 @@ python train.py --env halfcheetah-morph --tar_env_interact_freq 5/10/20 --seeds 
 
 ### Discussion
 
-The results show that having more source domain transitions is beneficial when the number of target domain transitions is the same. This validates the ability of value_guided_data_filtering to fully leverage the source domain transitions and suggests that it is a promising approach for reinforcement learning in scenarios where data from the source domain is abundant.
+The results show that having more source domain transitions is beneficial when the number of target domain transitions is the same. This validates the ability of VGDF to fully leverage the source domain transitions and suggests that it is a promising approach for reinforcement learning in scenarios where data from the source domain is abundant.
