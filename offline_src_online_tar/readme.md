@@ -1,4 +1,4 @@
-## Experiment: single dynamics + ensemble Q for the value proximity estimation
+## Experiment: Offline source domain dataset + Online target domain interactions
 
 ### Setup
 
@@ -10,6 +10,7 @@ Go to **gym.envs.mujoco.${env(-v2)}**, and change the ${EnvClass}**.__init__()**
 ```
     def __init__(self):
 ```
+
 to
 
 ```
@@ -18,26 +19,39 @@ to
 
 ### Launch
 
-Run the experiment with value ensemble size (3 or 5) in HalfCheetah (5 runs with different seeds):
+Run the experiment with d4rl halfcheetah-medium dataset in HalfCheetah (5 runs with different seeds):
 
 
 ```
-python train.py --env halfcheetah --value_ensemble_size 3/5 --seeds 12 123 1234 12345 123456
+python train.py --env halfcheetah --seeds 12 123 1234 12345 123456
 ```
 
-Run the experiment with value ensemble size (3 or 5) in HalfCheetah-morph (5 runs with different seeds):
+Run the experiment with d4rl halfcheetah-medium dataset in HalfCheetah-morph (5 runs with different seeds):
 
 
 ```
-python train.py --env halfcheetah_morph --value_ensemble_size 3/5 --seeds 12 123 1234 12345 123456
+python train.py --env halfcheetah_morph --seeds 12 123 1234 12345 123456
 ```
 
+Run the experiment with d4rl hopper-medium dataset in Hopper (5 runs with different seeds):
+
+
+```
+python train.py --env hopper --seeds 12 123 1234 12345 123456
+```
+
+Run the experiment with d4rl hopper-medium dataset in Hopper-morph (5 runs with different seeds):
+
+
+```
+python train.py --env hopper_morph --seeds 12 123 1234 12345 123456
+```
 
 
 ### Results:
 
 <div align="left">
-  <img src="https://github.com/dfoakdancj/value_guided_data_filtering/blob/master/value_ensemble_based_gaussian/LC_ablation_ensemble_q.png?raw=true">
+  <img src="https://github.com/dfoakdancj/value_guided_data_filtering/blob/master/offline_src_online_tar/LC_offline.png">
 </div>
 
 
