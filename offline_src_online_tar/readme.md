@@ -51,11 +51,11 @@ python train.py --env hopper_morph --seeds 12 123 1234 12345 123456
 ### Results:
 
 <div align="left">
-  <img src="https://github.com/dfoakdancj/value_guided_data_filtering/blob/master/offline_src_online_tar/LC_offline.png">
+  <img src="https://github.com/dfoakdancj/value_guided_data_filtering/blob/master/offline_src_online_tar/LC_offline_oracle.png">
 </div>
 
 
 
 ### Discussion
 
-To validate the effect of our method in the setting with the source domain offline dataset and the target domain online simulator, we use CQL as our backbone algorithm and conduct experiments based on the d4rl offline datasets. We use medium datasets for all environments and perform 10 gradient updates per online interaction with the target domain. 
+To validate the effect of our method in the setting with the source domain offline dataset and the target domain online simulator, we use CQL as our backbone algorithm and conduct experiments based on the d4rl offline datasets. We use medium datasets for all environments and perform 10 gradient updates per online interaction with the target domain. As the results show, VGDF works under the offline-online setting, and we believe the results can be improved with better datasets and the number of gradient updates.
