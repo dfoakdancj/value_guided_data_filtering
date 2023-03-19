@@ -58,4 +58,4 @@ python train.py --env hopper_morph --seeds 12 123 1234 12345 123456
 
 ### Discussion
 
-To verify the impact of the ensemble q values, we conducted an experiment in which we compared a variant with single dynamics + ensemble Q to value_guided_data_filtering with different ensemble dynamics size. Specifically, we varied the number of ensemble Q values used in our algorithm and analyzed its impact on the algorithm's performance. The results of our experiment showed that the single dynamics + ensemble Q algorithm is not sufficient to achieve performance comparable to value_guided_data_filtering.
+To validate the effect of our method in the setting with the source domain offline dataset and the target domain online simulator, we use CQL as our backbone algorithm and conduct experiments based on the d4rl offline datasets. We use medium datasets for all environments and perform 10 gradient updates per online interaction with the target domain. 
