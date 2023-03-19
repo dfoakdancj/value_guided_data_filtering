@@ -51,7 +51,7 @@ python train.py --env hopper_morph --seeds 12 123 1234 12345 123456
 ### Results:
 
 <div align="left">
-  <img src="https://github.com/dfoakdancj/value_guided_data_filtering/blob/master/offline_src_online_tar/LC_offline_oracle.png">
+  <img src="https://github.com/dfoakdancj/value_guided_data_filtering/blob/master/offline_src_online_tar/LC_offline.png">
 </div>
 
 
