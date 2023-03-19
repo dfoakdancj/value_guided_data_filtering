@@ -1,4 +1,5 @@
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any, Union
+import io
 import numpy as np
 import torch
 import os
@@ -6,6 +7,9 @@ import gym
 import yaml
 import torch.nn as nn
 import datetime
+import pathlib
+import zlib
+import pickle
 
 
 def current_time() -> str:
@@ -30,6 +34,14 @@ def seed_all(seed: int, env: gym.Env = None) -> None:
         env.seed(seed)
 
 
+def obtain_exp_path(config: Dict, exp_name: str) -> str:
+    exp_path = config['result_path'] + f"{config['env']}"
+    if exp_name is not None:
+        exp_path += f'-{exp_name}'
+    exp_path += f"-{config['seed']}/"
+    return exp_path
+
+
 def make_exp_path(config: Dict, exp_name: str) -> Dict:
     exp_path = config['result_path'] + f"{config['env']}"
     if exp_name is not None:
@@ -44,3 +56,17 @@ def make_exp_path(config: Dict, exp_name: str) -> Dict:
     with open(config['exp_path'] + 'config.yaml', 'w', encoding='utf-8') as f:
         yaml.safe_dump(config, f, indent=2)
     return config
+
+
+
+def save_to_pkl_with_compress(path: Union[str, pathlib.Path, io.BufferedIOBase], obj: Any, verbose: int = 0) -> None:
+    with open(path, 'wb') as file_handler:
+        file_handler.write(zlib.compress(pickle.dumps(obj)))
+        file_handler.close()
+
+def load_from_pkl_with_decompress(path: Union[str, pathlib.Path, io.BufferedIOBase], verbose: int = 0) -> Any:
+    with open(path, 'rb') as file_handler:
+        obj = zlib.decompress(file_handler.read())
+        obj = pickle.loads(obj)
+        file_handler.close()
+    return obj

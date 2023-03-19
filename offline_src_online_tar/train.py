@@ -16,7 +16,7 @@ from value_guided_data_filtering.offline_src_online_tar.agent              impor
 
 
 def train(config: Dict, exp_name: str, continue_train: bool) -> False:
-    result_path             =   f"{str(Path(__file__).parent.absolute())}/results/offline_value_equal_transfer/"
+    result_path             =   f"{str(Path(__file__).parent.absolute())}/results/"
     config['result_path']   =   result_path
 
     if continue_train:
